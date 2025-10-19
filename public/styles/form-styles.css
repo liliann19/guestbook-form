@@ -87,3 +87,9 @@ select {
     font-size: 1rem;
     margin-left: 1rem;
 }
+
+/* GitHub Repo URL */
+.url-container {
+    display:grid;
+    place-items: center;
+}
