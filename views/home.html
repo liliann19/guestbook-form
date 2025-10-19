@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guestbook</title>
+
+    <!-- Stylesheet -->
+    <link rel="stylesheet" href="/public/styles/form-styles.css">
+
+    <!-- Favicon -->
+    <link rel="icon" href="/public/images/icon.png">
+</head>
+<body>
+    <div id="main">
+    <header>
+        <h1>Contact form</h1>
+    </header>
+
+    <form id="guestbook-form" action="#" method="get">
+
+        <!-- Personal Info -->
+        <fieldset>
+            <div class="field-container">
+                <div class="field">
+                    <label for="fname">First Name</label>
+                    <input type="text" id="fname" name="fname">
+                </div>
+
+                <div class="field">
+                    <label for="lname">Last Name</label>
+                    <input type="text" id="lname" name="lname">  
+                </div>
+                
+                <div class="field">
+                    <label for="title">Job Title</label>
+                    <input type="text" id="title" name="title">
+                </div>
+            </div>
+        </fieldset>
+
+        <!-- Contact Info -->
+        <fieldset>
+            <div class="field-container">
+                <div class="field">
+                    <label for="company">Company</label>
+                    <input type="text" id="company" name="company">
+                </div>
+
+                <div class="field">
+                    <label for="linkedin-url">LinkedIn URL</label>
+                    <input type="url" id="linkedin-url" name="linkedin-url">
+                </div>
+
+                <div class="field">
+                    <label for="email">Email Address</label>
+                    <input type="email" id="email" name="email">
+                </div>
+            </div>
+        </fieldset>
+
+        <!-- Connection Info -->
+        <fieldset>
+            <div class="field-container">
+                <div class="connect-field">
+                <label for="meet">How did we meet?</label>
+                <select id="meet" name="meet">
+                    <option value="none">Please select</option>
+                    <option value="linkedin">LinkedIn</option>
+                    <option value="meetup">Networking Meetup</option>
+                    <option value="referral">Referral/Friend</option>
+                    <option value="social-media">Social Media</option>
+                </select>
+                </div>
+
+                <div class="connect-field">
+                    <label for="other">Other (please specify)</label>
+                    <input type="text" id="other" name="other">
+                </div>
+            </div>
+        </fieldset>
+
+        <!-- Message -->
+        <fieldset>   
+            <div class="field-container">
+                <div class="message-field">
+                    <label for="message">Message</label>
+                    <textarea rows="6" id="message" name="message"></textarea>
+                </div>
+            </div>
+        </fieldset>
+
+        <!-- Mailing List Preferences -->
+        <fieldset>
+            <label for="mailing-list">
+                <input type="checkbox" id="mailing-list" name="mailing-list" value="mailing-list">Please add me to your mailing list
+            </label>
+
+            <div class="radio-field">
+                <legend>Choose an email format:</legend> 
+                <label for="html">
+                    <input type="radio" id="html" name="email-format" value="html">HTML
+                </label>
+    
+                <label for="text">
+                    <input type="radio" id="text" name="email-format" value="text">Text
+                </label>  
+            </div>
+        </fieldset>
+
+        <!-- Submit button -->
+        <button type="submit" id="submit-button">Submit</button>
+
+
+    </form>
+    </div>
+</body>
+</html>
