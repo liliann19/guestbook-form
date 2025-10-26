@@ -93,3 +93,18 @@ select {
     display:grid;
     place-items: center;
 }
+
+/* Input validation */
+.errors {
+    color: darkred;
+    display: none;
+}
+
+/* Other(please specify) */
+#other-container label {
+    display: block;
+}
+
+#other-container input {
+    width: 100%;
+}
