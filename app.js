@@ -28,11 +28,13 @@ app.post('/submit-request', (req, res) => {
         lname: req.body.lname,
         title: req.body.title,
         company: req.body.company,
-        url: req.body.url,
+        url: req.body['linkedin-url'],
         email: req.body.email,
         meet: req.body.meet,
+        other: req.body.other,
         message: req.body.message,
-        mailing: req.body.mailing
+        mailing: req.body['mailing-list'],
+        format: req.body['email-format']
     };
 
     submissions.push(submission);
