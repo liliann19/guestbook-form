@@ -26,14 +26,14 @@ document.getElementById("guestbook-form").onsubmit = () => {
     }
 
     // validate mailing list (if checked, email must be provided)
-    let mailingList = document.getElementById("mailing-list").checked;
+    let mailingList = document.getElementById("mailing").checked;
     if (mailingList && !email) {
         document.getElementById("err-email").style.display = "block";
         isValid = false;
     } 
 
     // validate LinkedIn address
-    let linkedInUrl = document.getElementById("linkedin-url").value.trim();
+    let linkedInUrl = document.getElementById("linkedin").value.trim();
     if (linkedInUrl && !linkedInUrl.startsWith("https://linkedin.com/in/")) {
         document.getElementById("err-linkedInUrl").style.display = "block";
         isValid = false;
@@ -51,7 +51,7 @@ document.getElementById("guestbook-form").onsubmit = () => {
 
 // hide email format buttons, only visible when mailing list checkbox is checked 
 let emailFormatButtons = document.querySelector(".radio-field");
-let mailingListCheckbox = document.getElementById("mailing-list");
+let mailingListCheckbox = document.getElementById("mailing");
 
 emailFormatButtons.style.display = "none";
 
