@@ -4,7 +4,7 @@ const app = express();
 
 const PORT = 3002;
 
-const submissions = []
+const submissions = [];
 
 app.use(express.static('public'));
 
@@ -17,10 +17,6 @@ app.get('/', (req, res) => {
 app.get('/confirm', (req, res) => {
     res.sendFile(`${import.meta.dirname}/views/confirmation.html`)
 });
-
-app.get('/admin', (req, res) => {
-    res.send(submissions);
-})
 
 app.post('/submit-request', (req, res) => {
     const submission = {
