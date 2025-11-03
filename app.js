@@ -28,7 +28,7 @@ app.post('/submit-request', (req, res) => {
         lname: req.body.lname,
         title: req.body.title,
         company: req.body.company,
-        url: req.body.linkedin,
+        linkedin: req.body.linkedin,
         email: req.body.email,
         meet: req.body.meet,
         other: req.body.other,
