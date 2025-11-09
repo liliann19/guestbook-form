@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guestbook</title>
+
+    <!-- Stylesheet -->
+    <link rel="stylesheet" href="/styles/form-styles.css">
+
+    <!-- Favicon -->
+    <link rel="icon" href="/images/icon.png">
+</head>
+<body>
+    <%- include('partials/navbar') %>
+
+    <div class="main">
+        <header>
+            <h1>Thank you for your submission!</h1>
+            <p>Here's a summary of what you submitted</p>
+        </header>
+
+        <section class="confirmation-details">
+            <p><strong>Name:</strong> <%= submission.fname %> <%= submission.lname %></p>
+            <p><strong>Job Title:</strong> <%= submission.title %></p>
+            <p><strong>Company:</strong> <%= submission.company %></p>
+            <p><strong>LinkedIn URL:</strong> <%= submission.linkedin %></p>
+            <p><strong>Email:</strong> <%= submission.email %></p>
+            <p><strong>How we met:</strong> <%= submission.meet %></p>
+            <% if (submission.other) { %>
+                <p><strong>Other:</strong> <%= submission.other %> </p>
+            <% } %>
+            <p><strong>Message:</strong> <%= submission.message %></p>
+            <p><strong>Join Mailing List:</strong> <%= submission.mailing %></p>
+            <p><strong>Preferred Format:</strong> <%= submission.format %></p>
+            <p><strong>Submitted on:</strong> <%= submission.timestamp %></p>
+        </section> 
+    </div>
+</body>
+</html> 

@@ -15,7 +15,9 @@
     <script src="/js/guestbook.js" defer></script>
 </head>
 <body>
-    <div id="main">
+    <%- include('partials/navbar') %>
+
+    <div class="main">
     <header>
         <h1>Contact form</h1>
     </header>
@@ -119,11 +121,6 @@
 
         <!-- Submit button -->
         <button type="submit" id="submit-button">Submit</button>
-
-        <!-- URL to Github -->
-        <div class="url-container">
-            <a href="https://github.com/liliann19/guestbook-form.git">https://github.com/liliann19/guestbook-form.git</a>
-        </div>
     </form>
     </div>
 </body>

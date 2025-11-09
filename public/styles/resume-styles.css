@@ -1,0 +1,203 @@
+:root {
+    --primary-color: #794f33;    
+    --secondary-color: #4B3621;  
+    --accent-color: #F5EFE6;      
+    --highlight-color: #D9C7B0;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 16px;
+    line-height: 1.5;
+    color: var(--secondary-color);
+    background-color: white;
+}
+
+h1 {
+    font-size: 32px;
+    margin: 12px 0;
+    color: var(--primary-color);
+}
+
+h2 {
+    font-size: 24px;
+    margin: 10px 0;
+    color: var(--primary-color);
+}
+
+h3 {
+    font-size: 18px;
+    margin: 8px 0;
+    color: var(--secondary-color);
+}
+
+.container {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 0 20px;
+    
+}
+
+/* Contact Info Section & Image */
+.resume-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+header nav {
+    margin-top: 20px;
+    margin-bottom: -20px;
+}
+
+.header-image img {
+    width: 175px;
+    height: 175px;
+    border-radius: 50%;
+    object-fit: cover;
+    position: relative;
+    left: -10px;
+    margin-top: 20px;
+    border: 3px solid var(--primary-color);
+}
+
+/* Links */
+a {
+    color: var(--primary-color);
+    text-decoration: none;
+}
+
+a:hover, a:focus {
+    color: var(--highlight-color);
+    text-decoration: underline;
+    
+}
+
+/* Summary */
+#summary-paragraph {
+    line-height: 1.8;
+    margin-bottom: 10px;
+}
+
+/* Education Section & experience-header */
+.education-header, .experience-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    margin-bottom: 6px;
+}
+
+.education-section ul {
+    padding-left: 20px;
+    padding-top: 6px;
+}
+
+/* Skills & Certifications Section */
+.skills-certification-section ul {
+    display: flex;
+    flex-wrap: wrap;
+    padding-left: 20px;
+}
+
+.skills-certification-section li {
+    flex: 1 1 45%;
+    margin-bottom: 6px;
+    border-left: 4px solid var(--primary-color);
+    background-color: var(--accent-color);
+    padding: 4px 8px;
+}
+
+/* Experience Section */
+.experience-section ul {
+    padding-left: 20px;
+}
+
+.experience-section li {
+    margin-bottom: 6px;
+}
+
+/* Achievements & Activities Section */
+.achievements-activities-section ul {
+    list-style: disc outside; 
+    padding-left: 20px;
+    margin-bottom: 20px;
+}
+
+.achievements-activities-section li {
+    position: relative;
+    padding-right: 100px;
+    margin-bottom: 6px;
+}
+
+.achievement-text {
+    display: inline-block;
+}
+
+.achievement-year {
+    position: absolute;
+    right: 0;
+    white-space: nowrap;
+}
+
+.honor, .company,
+.award, .member {
+    font-style: italic;
+    font-size: 16px;
+    font-weight: normal;
+    color: var(--secondary-color);
+}
+
+/* Navigation bar */
+.navbar {
+    background-color: #4B3621;       
+    padding: 1em 2em;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.15); 
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.navbar ul {
+    display: flex;
+    justify-content: center;  
+    align-items: center;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    gap: 2em;
+}
+
+.navbar a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 1.05em;
+    transition: color 0.3s ease;
+}
+
+.navbar a:hover {
+    color: #D9C7B0;              
+}
+
+/* Responsive Design */
+@media (max-width: 600px) {
+    .resume-header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .header-image {
+        margin-top: 10px;  
+    }
+
+    .header-image img {
+        width: 120px;
+        height: 120px;
+    }
+}

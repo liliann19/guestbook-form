@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guestbook</title>
+
+    <!-- Script -->
+    <script src="https://code.jquery.com/jquery-3.7.1.js"></script>
+    <script src="//cdn.datatables.net/2.3.4/js/dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/responsive/3.0.2/js/dataTables.responsive.min.js"></script>
+
+    <!-- Favicon -->
+    <link rel="icon" href="images/icon.png">
+
+    <!-- Stylesheet -->
+    <link rel="stylesheet" href="https://cdn.datatables.net/responsive/3.0.2/css/responsive.dataTables.min.css">
+    <link rel="stylesheet" href="//cdn.datatables.net/2.3.4/css/dataTables.dataTables.min.css">
+    <link rel="stylesheet" href="/styles/form-styles.css">
+
+</head>
+<body>
+    <%- include('partials/navbar') %>
+
+    <h1>Submissions</h1>
+    <% if (submissions.length == 0) { %>
+        <p class="no-submissions">No contacts to display</p>
+    <% } else { %>
+    <table id="submission-table" class="display">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Job Title</th>
+                <th>Company</th>
+                <th>Email</th>
+                <th>LinkedIn URL</th>
+                <th>How we met</th>
+                <th>Other</th>
+                <th>Message</th>
+                <th>Mailing List</th>
+                <th>Preferred Format</th>
+                <th>Date/Time</th>
+            </tr>
+        </thead>
+        <tbody>
+            <% submissions.forEach(submission => { %>
+            <tr>
+                <td><%= submission.fname %> <%= submission.lname %></td>
+                <td><%= submission.title %></td>
+                <td><%= submission.company %></td>
+                <td><%= submission.email %></td>
+                <td><%= submission.linkedin %></td>
+                <td><%= submission.meet %></td>
+                <td><%= submission.other %></td>
+                <td><%= submission.message %></td>
+                <td><%= submission.mailing %></td>
+                <td><%= submission.format %></td>
+                <td><%= submission.timestamp %></td>
+            </tr>
+            <% }); %>
+        </tbody>
+    </table>    
+    <% } %>
+
+    <script>
+    document.addEventListener("DOMContentLoaded", () => {
+        new DataTable('#submission-table', {
+            responsive: true, 
+            columnDefs: [
+                { responsivePriority: 1, targets: '_all' } 
+            ],
+            scrollX: true
+        });
+    });
+    </script>
+</body>
+</html>

@@ -4,11 +4,11 @@
 
 body {
     margin: 0;
-    background-color: rgb(232, 232, 232);
-    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif
+    background-color: white;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
-#main {
+.main {
     background-color: white;
     width: 60%;
     margin: 2rem auto 1rem auto;
@@ -24,7 +24,7 @@ h1 {
 label {
     padding-bottom: 5px;
     font-weight: 600;
-    
+    color: #4B3621;
 }
 
 legend {
@@ -79,26 +79,15 @@ select {
 /* Button */
 #submit-button {
     border: none;
-    background-color: rgb(42, 154, 42);
-    border-color: rgb(42, 154, 42);
+    background-color: #6B8E23;
+    border-color: #6B8E23;
     color: white;
     border-radius: 0.25rem;
     padding: 0.5rem 1.2rem;
     font-size: 1rem;
     margin-left: 1rem;
-
     text-decoration: none;
-}
-
-.button {
-    text-align: center;
-    margin-top: 2rem;
-}
-
-/* GitHub Repo URL */
-.url-container {
-    display:grid;
-    place-items: center;
+    cursor: pointer;
 }
 
 /* Input validation */
@@ -114,4 +103,58 @@ select {
 
 #other-container input {
     width: 100%;
+}
+
+/* Confirmation page */
+header p{
+    text-align: center;
+}
+
+.confirmation-details strong{
+    line-height: 0.5rem;
+    font-size: 1.1rem;
+    color: #2a2a2a;
+}
+
+.confirmation-details {
+    margin-left: 20px;
+}
+
+/* Admin page */
+.no-submissions {
+    text-align: center;
+    font-size: 20px;
+    font-weight: 600;
+}
+
+/* Navigation bar */
+.navbar {
+    background-color: #4B3621;       
+    padding: 1em 2em;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.15); 
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.navbar ul {
+    display: flex;
+    justify-content: center;  
+    align-items: center;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    gap: 2em;
+}
+
+.navbar a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 1.05em;
+    transition: color 0.3s ease;
+}
+
+.navbar a:hover {
+    color: #D9C7B0;              
 }
