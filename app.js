@@ -1,6 +1,20 @@
+// imports
 import express from 'express';
+import mysql2 from 'mysql2';
+import dotenv from 'dotenv';
+
+// Load the variable from .env file
+dotenv.config();
 
 const app = express();
+
+const pool = mysql2.createPool({
+    host: process.env.DB_HOST,
+    user: process.env.DB_USER,
+    password: process.env.DB_PASSWORD,
+    database: process.env.DB_NAME,
+    port: process.env.DB_PORT
+}).promise();
 
 const PORT = 3002;
 
@@ -10,7 +24,17 @@ app.set('view engine', 'ejs');
 
 app.use(express.static('public'));
 
-app.use(express.urlencoded({ extended: true}));
+app.use(express.urlencoded({ extended: true }));
+
+// Define a route to test database connection 
+app.get('/db-test', async (req, res) => {
+    try {
+        const [submissions] = await pool.query('SELECT * FROM contacts');
+        res.send(submissions);
+    } catch (err) {
+        console.error('Database error:', err);
+    }
+});
 
 // Resume page
 app.get('/', (req, res) => {
@@ -30,12 +54,18 @@ app.get('/confirm', (req, res) => {
 });
 
 // Admin page
-app.get('/admin', (req, res) => {
+app.get('/admin', async (req, res) => {
+
+    try {
+        const [submissions] = await pool.query('SELECT * FROM contacts ORDER BY timestamp DESC');
+        res.render('admin', { submissions });
+    } catch (err) {
+        console.error('Database error:', err);
+    }
     //res.send(submissions);
-    res.render('admin', { submissions });
 });
 
-app.post('/submit-request', (req, res) => {
+app.post('/submit-request', async (req, res) => {
     const submission = {
         fname: req.body.fname,
         lname: req.body.lname,
@@ -48,14 +78,42 @@ app.post('/submit-request', (req, res) => {
         message: req.body.message,
         mailing: req.body.mailing,
         format: req.body.format,
-        timestamp: new Date().toLocaleString()
+        timestamp: new Date()
     };
 
-    submissions.push(submission);
-    console.log(submissions);
+    const sql = "INSERT INTO contacts (first_name, last_name, job_title, company, linkedin_url, email, how_met, how_met_other, message, mailing_list, email_format, timestamp) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+
+    // create array of parameters for each placeholder
+    const params = [
+        submission.fname,
+        submission.lname,
+        submission.title,
+        submission.company,
+        submission.linkedin,
+        submission.email,
+        submission.meet,
+        submission.meet === 'other' ? submission.other : null,
+        submission.message || null,
+        submission.mailing ? 1 : 0,
+        submission.mailing ? submission.format : null,
+        submission.timestamp
+    ];
+
+    try {
+        const [result] = await pool.execute(sql, params);
+
+        // Send user to confirmation page
+        res.render('confirmation', { submission });
+
+    } catch (err) {
+        console.error("Database Error:", err);
+        res.status(500).send('Error loading orders: ' + err.message);
+    }
+
+    // submissions.push(submission);
+    // console.log(submissions);
 
     //res.sendFile(`${import.meta.dirname}/views/confirmation.html`)
-    res.render('confirmation', { submission });
 });
 
 app.listen(PORT, () => {

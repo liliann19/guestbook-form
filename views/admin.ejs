@@ -45,16 +45,16 @@
         <tbody>
             <% submissions.forEach(submission => { %>
             <tr>
-                <td><%= submission.fname %> <%= submission.lname %></td>
-                <td><%= submission.title %></td>
+                <td><%= submission.first_name %> <%= submission.last_name %></td>
+                <td><%= submission.job_title %></td>
                 <td><%= submission.company %></td>
                 <td><%= submission.email %></td>
-                <td><%= submission.linkedin %></td>
-                <td><%= submission.meet %></td>
-                <td><%= submission.other %></td>
+                <td><%= submission.linkedin_url %></td>
+                <td><%= submission.how_met %></td>
+                <td><%= submission.how_met_other %></td>
                 <td><%= submission.message %></td>
-                <td><%= submission.mailing %></td>
-                <td><%= submission.format %></td>
+                <td><%= submission.mailing_list ? 'Yes' : 'No' %></td>
+                <td><%= submission.email_format %></td>
                 <td><%= submission.timestamp %></td>
             </tr>
             <% }); %>
